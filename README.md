@@ -1,0 +1,1 @@
+# React component wrapper for [Mathquill](http://mathquill.com/)
