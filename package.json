@@ -11,10 +11,12 @@
     "start": "webpack --mode development",
     "build": "webpack --mode production",
     "start:example": "webpack-dev-server --config webpack.examples.js --mode development",
-    "build:example": "webpack --mode production --config webpack.examples.js"
+    "build:example": "webpack --mode production --config webpack.examples.js",
+    "deploy": "npm run build:example && gh-pages -d examples/dist"
   },
   "dependencies": {
     "mathquill": "^0.10.1-a",
+    "prop-types": "^15.6.2",
     "react": "^16.5.2"
   },
   "devDependencies": {
@@ -25,6 +27,7 @@
     "css-loader": "^1.0.0",
     "exports-loader": "^0.7.0",
     "file-loader": "^2.0.0",
+    "gh-pages": "^2.0.1",
     "html-webpack-plugin": "^3.2.0",
     "imports-loader": "^0.8.0",
     "prettier": "^1.14.3",

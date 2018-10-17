@@ -1,5 +1,6 @@
 module.exports = {
   output: {
+    library: 'MathquillComponent',
     libraryTarget: 'umd',
     umdNamedDefine: true,
   },

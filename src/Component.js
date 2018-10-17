@@ -1,7 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { MathQuill, MQ } from './mathquill-loader'
 
-export default class MathQuillComponent extends React.Component {
+class MathQuillComponent extends React.Component {
   constructor(props) {
     super(props)
 
@@ -10,17 +11,26 @@ export default class MathQuillComponent extends React.Component {
   }
 
   componentDidMount() {
-    const self = this
-
-    const config = {
-      handlers: {
-        edit: function() {},
-      },
+    let config = {
       restrictMismatchedBrackets: true,
+      handlers: {},
+    }
+
+    if (this.props.config) {
+      config = {
+        config,
+        ...this.props.config,
+      }
+    }
+
+    config.handlers.edit = mathField => {
+      if (this.props.onChange) {
+        this.props.onChange(mathField.latex())
+      }
     }
 
     this.mathField = MathQuill.MathField(this.element, config)
-    this.mathField.latex(this.props.latex)
+    this.mathField.latex(this.props.latex || '')
   }
 
   render() {
@@ -33,3 +43,11 @@ export default class MathQuillComponent extends React.Component {
     )
   }
 }
+
+MathQuillComponent.propTypes = {
+  latex: PropTypes.string,
+  onChange: PropTypes.func,
+  config: PropTypes.object,
+}
+
+export default MathQuillComponent

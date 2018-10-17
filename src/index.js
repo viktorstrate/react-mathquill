@@ -3,7 +3,6 @@ import style from 'mathquill/build/mathquill.css'
 
 function addStyle() {
   if (document.getElementById('react-mathquill-styles') == null) {
-    console.log(style, style[0][1])
     const styleTag = document.createElement('style')
     styleTag.setAttribute('id', 'react-mathquill-styles')
     styleTag.innerHTML = style[0][1]

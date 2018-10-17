@@ -5,10 +5,28 @@ import ReactDOM from 'react-dom'
 import MathQuill from '../../dist/main'
 
 class App extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      latex: '\\cos\\left(A\\right)=\\frac{b^2+c^2-a^2}{2\\cdot b\\cdot c}',
+    }
+  }
+
   render() {
     return (
       <div>
-        Math field: <MathQuill />
+        Math field:{' '}
+        <MathQuill
+          latex={this.state.latex}
+          onChange={latex => {
+            this.setState({ latex })
+          }}
+        />
+        <div className="result-container">
+          <span>Raw latex:</span>
+          <span className="result-latex">{this.state.latex}</span>
+        </div>
       </div>
     )
   }
