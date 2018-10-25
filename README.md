@@ -4,7 +4,7 @@
 
 ```javascript
 import React from 'react'
-import MathQuill, { addStyles as addMathquillStyles } from '../../dist/main'
+import MathQuill, { addStyles as addMathquillStyles } from 'react-mathquill'
 
 // inserts the required css to the <head> block.
 // You can skip this, if you want to do that by your self.
