@@ -1,6 +1,6 @@
 {
   "name": "react-mathquill",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React component wrapper for Mathquill",
   "main": "index.js",
   "repository": "git@github.com:viktorstrate/react-mathquill.git",
@@ -12,7 +12,8 @@
     "build": "webpack --mode production",
     "start:example": "webpack --mode development --watch & webpack-dev-server --config webpack.examples.js --mode development",
     "build:example": "npm run build && webpack --mode production --config webpack.examples.js",
-    "deploy": "npm run build:example && gh-pages -d examples/dist"
+    "deploy": "npm run build:example && gh-pages -d examples/dist",
+    "prepublish": "rm -rf dist/ && npm run build"
   },
   "dependencies": {
     "mathquill": "^0.10.1-a",
