@@ -1,6 +1,10 @@
 # React component wrapper for [Mathquill](http://mathquill.com/)
 
+[![npm version](https://badge.fury.io/js/react-mathquill.svg)](https://badge.fury.io/js/react-mathquill)
+
 ## Example
+
+> Link to an [example](https://viktorstrate.github.io/react-mathquill/)
 
 ```javascript
 import React from 'react'
