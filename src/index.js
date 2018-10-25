@@ -1,7 +1,7 @@
 import MathQuillComponent from './Component'
 import style from 'mathquill/build/mathquill.css'
 
-function addStyle() {
+export function addStyles() {
   if (document.getElementById('react-mathquill-styles') == null) {
     const styleTag = document.createElement('style')
     styleTag.setAttribute('id', 'react-mathquill-styles')
@@ -11,7 +11,5 @@ function addStyle() {
     head.appendChild(styleTag)
   }
 }
-
-addStyle()
 
 export default MathQuillComponent

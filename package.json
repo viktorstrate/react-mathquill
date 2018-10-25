@@ -10,8 +10,8 @@
   "scripts": {
     "start": "webpack --mode development",
     "build": "webpack --mode production",
-    "start:example": "webpack-dev-server --config webpack.examples.js --mode development",
-    "build:example": "webpack --mode production --config webpack.examples.js",
+    "start:example": "webpack --mode development --watch & webpack-dev-server --config webpack.examples.js --mode development",
+    "build:example": "npm run build && webpack --mode production --config webpack.examples.js",
     "deploy": "npm run build:example && gh-pages -d examples/dist"
   },
   "dependencies": {

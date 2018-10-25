@@ -2,7 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 // import the library
-import MathQuill from '../../dist/main'
+import MathQuill, { addStyles as addMathquillStyles } from '../../index'
+
+addMathquillStyles()
 
 class App extends React.Component {
   constructor(props) {
