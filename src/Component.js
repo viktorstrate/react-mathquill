@@ -8,6 +8,9 @@ class MathQuillComponent extends React.Component {
 
     this.element = null
     this.mathField = null
+
+    // MathJax apparently fire 4 edit events on startup.
+    this.ignoreEditEvents = 4
   }
 
   componentDidMount() {
@@ -24,6 +27,10 @@ class MathQuillComponent extends React.Component {
     }
 
     config.handlers.edit = mathField => {
+      if (this.ignoreEditEvents > 0) {
+        this.ignoreEditEvents -= 1
+        return
+      }
       if (this.props.onChange) {
         this.props.onChange(mathField.latex())
       }
