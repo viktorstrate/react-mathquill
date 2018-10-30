@@ -38,6 +38,10 @@ class MathQuillComponent extends React.Component {
 
     this.mathField = MathQuill.MathField(this.element, config)
     this.mathField.latex(this.props.latex || '')
+
+    if (this.props.mathquillDidMount) {
+      this.props.mathquillDidMount(this.mathField)
+    }
   }
 
   render() {
@@ -55,6 +59,7 @@ MathQuillComponent.propTypes = {
   latex: PropTypes.string,
   onChange: PropTypes.func,
   config: PropTypes.object,
+  mathquillDidMount: PropTypes.func,
 }
 
 export default MathQuillComponent

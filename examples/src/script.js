@@ -6,12 +6,21 @@ import MathQuill, { addStyles as addMathquillStyles } from '../../index'
 
 addMathquillStyles()
 
+const initialLatex =
+  '\\cos\\left(A\\right)=\\frac{b^2+c^2-a^2}{2\\cdot b\\cdot c}'
+
 class App extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      latex: '\\cos\\left(A\\right)=\\frac{b^2+c^2-a^2}{2\\cdot b\\cdot c}',
+      latex: initialLatex,
+    }
+
+    this.mathQuillEl = null
+
+    this.resetField = () => {
+      this.mathQuillEl.latex(initialLatex)
     }
   }
 
@@ -25,11 +34,15 @@ class App extends React.Component {
             console.log('Math field changed:', latex)
             this.setState({ latex })
           }}
+          mathquillDidMount={el => {
+            this.mathQuillEl = el
+          }}
         />
         <div className="result-container">
           <span>Raw latex:</span>
           <span className="result-latex">{this.state.latex}</span>
         </div>
+        <button onClick={this.resetField}>Reset field</button>
       </div>
     )
   }
