@@ -39,6 +39,10 @@ class MathQuillComponent extends React.Component {
     this.mathField = MathQuill.MathField(this.element, config)
     this.mathField.latex(this.props.latex || '')
 
+    if (this.props.className) {
+      this.element.classList.add(this.props.className)
+    }
+
     if (this.props.mathquillDidMount) {
       this.props.mathquillDidMount(this.mathField)
     }
