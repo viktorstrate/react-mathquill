@@ -29,6 +29,7 @@ class App extends React.Component {
       <div>
         Math field:{' '}
         <MathQuill
+          className="mathquill-example-field"
           latex={this.state.latex}
           onChange={latex => {
             console.log('Math field changed:', latex)
