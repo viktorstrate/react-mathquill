@@ -25,9 +25,9 @@ export default class App extends React.Component {
     return (
       <MathQuill
         latex={this.state.latex} // Initial latex value for the input field
-        onChange={latex => {
+        onChange={mathField => {
           // Called everytime the input changes
-          this.setState({ latex })
+          this.setState({ mathField.latex() })
         }}
       />
     )
