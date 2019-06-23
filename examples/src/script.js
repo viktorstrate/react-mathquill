@@ -15,6 +15,7 @@ class App extends React.Component {
 
     this.state = {
       latex: initialLatex,
+      text: '',
     }
 
     this.mathQuillEl = null
@@ -31,9 +32,12 @@ class App extends React.Component {
         <MathQuill
           className="mathquill-example-field"
           latex={this.state.latex}
-          onChange={latex => {
-            console.log('Math field changed:', latex)
-            this.setState({ latex })
+          onChange={mathField => {
+            const latex = mathField.latex()
+            const text = mathField.text()
+            console.log('latex changed:', latex)
+            console.log('text changed:', text)
+            this.setState({ latex, text })
           }}
           mathquillDidMount={el => {
             this.mathQuillEl = el
@@ -43,10 +47,14 @@ class App extends React.Component {
           <span>Raw latex:</span>
           <span className="result-latex">{this.state.latex}</span>
         </div>
+        <div className="result-container">
+          <span>Raw text:</span>
+          <span className="result-latex">{this.state.text}</span>
+        </div>
         <button onClick={this.resetField}>Reset field</button>
       </div>
     )
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'))
+ReactDOM.render(<App/>, document.getElementById('app'))
