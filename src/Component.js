@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { MathQuill, MQ } from './mathquill-loader'
+import { MathQuill } from './mathquill-loader'
 
 class MathQuillComponent extends React.Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class MathQuillComponent extends React.Component {
         return
       }
       if (this.props.onChange) {
-        this.props.onChange(mathField.latex())
+        this.props.onChange(mathField)
       }
     }
 
