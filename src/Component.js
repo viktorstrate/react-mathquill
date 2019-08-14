@@ -21,12 +21,18 @@ class MathQuillComponent extends React.Component {
 
     if (this.props.config) {
       config = {
-        config,
+        ...config,
         ...this.props.config,
       }
     }
 
+    let configEditHandler = config.handlers.edit
+
     config.handlers.edit = mathField => {
+      if (configEditHandler) {
+        configEditHandler()
+      }
+
       if (this.ignoreEditEvents > 0) {
         this.ignoreEditEvents -= 1
         return
