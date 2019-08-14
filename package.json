@@ -1,6 +1,6 @@
 {
   "name": "react-mathquill",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "React component wrapper for Mathquill",
   "main": "index.js",
   "repository": "git@github.com:viktorstrate/react-mathquill.git",
