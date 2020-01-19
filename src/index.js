@@ -1,4 +1,3 @@
-import MathQuillComponent from './Component'
 import style from '@edtr-io/mathquill/build/mathquill.css'
 
 export function addStyles() {
@@ -12,4 +11,7 @@ export function addStyles() {
   }
 }
 
-export default MathQuillComponent
+export const EditableMathField = require('./EditableMathField').default
+export const StaticMathField = require('./StaticMathField').default
+
+export default EditableMathField

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { MathQuill } from './mathquill-loader'
 
-class MathQuillComponent extends React.Component {
+class EditableMathField extends React.Component {
   constructor(props) {
     super(props)
 
@@ -70,11 +70,11 @@ class MathQuillComponent extends React.Component {
   }
 }
 
-MathQuillComponent.propTypes = {
+EditableMathField.propTypes = {
   latex: PropTypes.string,
   onChange: PropTypes.func,
   config: PropTypes.object,
   mathquillDidMount: PropTypes.func,
 }
 
-export default MathQuillComponent
+export default EditableMathField

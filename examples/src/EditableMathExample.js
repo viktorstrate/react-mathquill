@@ -1,15 +1,12 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 
 // import the library
-import MathQuill, { addStyles as addMathquillStyles } from '../../index'
-
-addMathquillStyles()
+import { EditableMathField } from '../../index'
 
 const initialLatex =
   '\\cos\\left(A\\right)=\\frac{b^2+c^2-a^2}{2\\cdot b\\cdot c}'
 
-class App extends React.Component {
+class EditableMathExample extends React.Component {
   constructor(props) {
     super(props)
 
@@ -29,7 +26,7 @@ class App extends React.Component {
     return (
       <div>
         Math field:{' '}
-        <MathQuill
+        <EditableMathField
           className="mathquill-example-field"
           latex={this.state.latex}
           onChange={mathField => {
@@ -57,4 +54,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'))
+export default EditableMathExample
