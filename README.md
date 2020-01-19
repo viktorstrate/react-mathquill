@@ -2,17 +2,19 @@
 
 [![npm version](https://badge.fury.io/js/react-mathquill.svg)](https://badge.fury.io/js/react-mathquill)
 
-## Example
+## Examples
 
 > Link to an [example](https://viktorstrate.github.io/react-mathquill/)
 
+### Editable Math Field
+
 ```javascript
 import React from 'react'
-import MathQuill, { addStyles as addMathquillStyles } from 'react-mathquill'
+import { addStyles, EditableMathField } from 'react-mathquill'
 
 // inserts the required css to the <head> block.
-// You can skip this, if you want to do that by your self.
-addMathquillStyles()
+// You can skip this, if you want to do that by yourself.
+addStyles()
 
 export default class App extends React.Component {
   constructor() {
@@ -23,7 +25,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <MathQuill
+      <EditableMathField
         latex={this.state.latex} // Initial latex value for the input field
         onChange={mathField => {
           // Called everytime the input changes
@@ -35,9 +37,41 @@ export default class App extends React.Component {
 }
 ```
 
+### Static Math Field
+
+```javascript
+import React from 'react'
+import { addStyles, StaticMathField } from 'react-mathquill'
+
+// inserts the required css to the <head> block.
+// You can skip this, if you want to do that by yourself.
+addStyles()
+
+export default class App extends React.Component {
+  constructor() {
+    this.state = {
+      latex: '\\frac{1}{\\sqrt{2}}\\cdot 2',
+    }
+  }
+
+  render() {
+    return <StaticMathField>{this.state.latex}</StaticMathField>
+  }
+}
+```
+
 # Documentation
 
-## MathQuillComponent (React Element)
+## addStyles (function)
+
+This function, when called, will append a `<style id="react-mathquill-styles">` tag to the `<head>` of the document.
+The style tag includes all the required styles for Mathquill to work.
+
+This function is not necessary, provided you include the styles in another way. See [Mathquill Docs - Download and Load](http://docs.mathquill.com/en/latest/Getting_Started/)
+
+## EditableMathField (React Element)
+
+> Wrapper for [Mathquill MathField](http://docs.mathquill.com/en/latest/Api_Methods/#mqmathfieldhtml_element-config)
 
 ### Props
 
@@ -48,9 +82,12 @@ export default class App extends React.Component {
 
 Other props will be passed to the wrapping element, this can be useful for custom _classNames_ or _styles_
 
-## addStyles (function)
+## StaticMathField (React Element)
 
-This function, when called, will append a `<style id="react-mathquill-styles">` tag to the `<head>` of the document.
-The style tag includes all the required styles for Mathquill to work.
+> Wrapper for [Mathquill StaticField](http://docs.mathquill.com/en/latest/Api_Methods/#mqstaticmathhtml_element)
 
-This function is not necessary, provided you include the styles in another way. See [Mathquill Docs - Download and Load](http://docs.mathquill.com/en/latest/Getting_Started/)
+### Props
+
+- children: String - _A string of latex to render statically on the page_
+
+Other props will be passed to the wrapping element, this can be useful for custom _classNames_ or _styles_

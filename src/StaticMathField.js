@@ -41,8 +41,7 @@ class StaticMathField extends React.Component {
 }
 
 StaticMathField.propTypes = {
-  latex: PropTypes.string,
-  mathquillDidMount: PropTypes.func,
+  children: PropTypes.string,
 }
 
 export default StaticMathField
