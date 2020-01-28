@@ -17,7 +17,9 @@ import { addStyles, EditableMathField } from 'react-mathquill'
 addStyles()
 
 export default class App extends React.Component {
-  constructor() {
+  constructor(props) {
+    super(props)
+
     this.state = {
       latex: '\\frac{1}{\\sqrt{2}}\\cdot 2',
     }
@@ -48,7 +50,9 @@ import { addStyles, StaticMathField } from 'react-mathquill'
 addStyles()
 
 export default class App extends React.Component {
-  constructor() {
+  constructor(props) {
+    super(props)
+
     this.state = {
       latex: '\\frac{1}{\\sqrt{2}}\\cdot 2',
     }

@@ -8,9 +8,11 @@ class StaticMathField extends React.Component {
 
     this.element = null
     this.mathField = null
+
+    this.updateMathquill.bind(this)
   }
 
-  componentDidUpdate() {
+  updateMathquill() {
     this.mathField = MathQuill.StaticMath(this.element)
 
     if (this.props.mathquillDidMount) {
@@ -19,22 +21,17 @@ class StaticMathField extends React.Component {
   }
 
   render() {
-    const {
-      latex,
-      onChange,
-      config,
-      mathquillDidMount,
-      ...otherProps
-    } = this.props
+    const { mathquillDidMount, children, ...otherProps } = this.props
 
     return (
       <div
         {...otherProps}
         ref={x => {
           this.element = x
+          this.updateMathquill()
         }}
       >
-        {this.props.children}
+        {children}
       </div>
     )
   }
@@ -42,6 +39,7 @@ class StaticMathField extends React.Component {
 
 StaticMathField.propTypes = {
   children: PropTypes.string,
+  mathquillDidMount: PropTypes.func,
 }
 
 export default StaticMathField
