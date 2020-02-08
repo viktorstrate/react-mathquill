@@ -50,6 +50,17 @@ class EditableMathField extends React.Component {
     }
   }
 
+  /**
+   * Update the mathfield's latex value if the value passed as `props.latex` doesn't match
+   */
+  componentDidUpdate(prevProps) {
+    const { mathField } = this
+    const { latex } = this.props
+    if (mathField && prevProps.latex !== latex && mathField.latex() !== latex) {
+      mathField.latex(latex)
+    }
+  }
+
   render() {
     const {
       latex,
