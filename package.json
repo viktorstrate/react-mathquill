@@ -1,6 +1,6 @@
 {
   "name": "react-mathquill",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "React component wrapper for Mathquill",
   "main": "index.js",
   "typings": "index.d.ts",
