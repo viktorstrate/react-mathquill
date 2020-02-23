@@ -58,6 +58,7 @@ declare module 'react-mathquill' {
     el(): HTMLElement
     latex(): string
     latex(latexString: string): void
+    text(): string
     focus(): void
     blur(): void
     write(latex: string): void
