@@ -45,6 +45,7 @@ declare module 'react-mathquill' {
       edit?: (mathField: MathField) => void
       enter?: (mathField: MathField) => void
     }
+    maxDepth?: number
   }
 
   export enum Direction {
