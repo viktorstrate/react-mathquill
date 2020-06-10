@@ -6,6 +6,7 @@ declare module 'react-mathquill' {
   export interface StaticMathFieldProps {
     children?: string
     mathquillDidMount?: (mathField: MathField) => void
+    className?: string
   }
 
   export interface EditableMathFieldProps {
@@ -13,6 +14,7 @@ declare module 'react-mathquill' {
     latex?: string
     config?: MathFieldConfig
     mathquillDidMount?: (mathField: MathField) => void
+    className?: string
   }
 
   export class EditableMathField extends React.Component<
