@@ -13,7 +13,7 @@ import React from 'react'
 import { addStyles, EditableMathField } from 'react-mathquill'
 
 // inserts the required css to the <head> block.
-// You can skip this, if you want to do that by yourself.
+// you can skip this, if you want to do that by yourself.
 addStyles()
 
 export default class App extends React.Component {
@@ -28,10 +28,10 @@ export default class App extends React.Component {
   render() {
     return (
       <EditableMathField
-        latex={this.state.latex} // Initial latex value for the input field
-        onChange={mathField => {
-          // Called everytime the input changes
-          this.setState({ mathField.latex() })
+        latex={this.state.latex} // latex value for the input field
+        onChange={(mathField) => {
+          // called everytime the input changes
+          this.setState({ latex: mathField.latex() })
         }}
       />
     )
@@ -46,7 +46,7 @@ import React from 'react'
 import { addStyles, StaticMathField } from 'react-mathquill'
 
 // inserts the required css to the <head> block.
-// You can skip this, if you want to do that by yourself.
+// you can skip this, if you want to do that by yourself.
 addStyles()
 
 export default class App extends React.Component {
