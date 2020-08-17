@@ -24,7 +24,7 @@ class StaticMathField extends React.Component {
     const { mathquillDidMount, children, ...otherProps } = this.props
 
     return (
-      <div
+      <span
         {...otherProps}
         ref={x => {
           this.element = x
@@ -32,7 +32,7 @@ class StaticMathField extends React.Component {
         }}
       >
         {children}
-      </div>
+      </span>
     )
   }
 }
