@@ -7292,7 +7292,7 @@ exports.unstable_shouldYield=function(){var a=exports.unstable_now();V(a);var b=
           u = Object(r.useRef)(null);
       return Object(r.useEffect)(function () {
         s && (u.current = a.a.StaticMath(s.current), t && t(u.current));
-      }, [s]), i.a.createElement("span", l({}, o, {
+      }, [s, n]), i.a.createElement("span", l({}, o, {
         ref: s
       }), n);
     };
