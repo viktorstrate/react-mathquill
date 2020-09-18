@@ -71,7 +71,7 @@ class EditableMathField extends React.Component {
     } = this.props
 
     return (
-      <div
+      <span
         {...otherProps}
         ref={x => {
           this.element = x
