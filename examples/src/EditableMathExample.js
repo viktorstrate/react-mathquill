@@ -1,7 +1,7 @@
 import React from 'react'
 
 // import the library
-import { EditableMathField } from '../../index'
+import { EditableMathField } from '../../dist/react-mathquill'
 
 const initialLatex =
   '\\cos\\left(A\\right)=\\frac{b^2+c^2-a^2}{2\\cdot b\\cdot c}'
@@ -38,6 +38,7 @@ class EditableMathExample extends React.Component {
           }}
           mathquillDidMount={(el) => {
             this.mathQuillEl = el
+            this.setState({ text: this.mathQuillEl.text() })
           }}
         />
         <div className="result-container">

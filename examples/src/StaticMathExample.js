@@ -1,7 +1,7 @@
 import React from 'react'
 
 // import the library
-import { StaticMathField } from '../../index'
+import { StaticMathField } from '../../dist/react-mathquill'
 
 const firstLatex = 'e=mc^2'
 

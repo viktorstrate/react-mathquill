@@ -10,10 +10,10 @@
   "private": false,
   "scripts": {
     "start": "webpack --mode development",
-    "build": "webpack --mode production",
+    "build": "webpack --mode production --output dist/react-mathquill.min.js && webpack --mode development --output dist/react-mathquill.js",
     "test": "eslint src/ examples/src/",
-    "start:example": "webpack --mode development --watch & webpack-dev-server --config webpack.examples.js --mode development",
-    "build:example": "npm run build && webpack --mode production --config webpack.examples.js",
+    "start:example": "webpack --mode development --watch --output dist/react-mathquill.js & webpack-dev-server --config webpack.examples.js --mode development",
+    "build:example": "npm run build && webpack --mode development --config webpack.examples.js",
     "deploy": "npm run build:example && gh-pages -d examples/dist",
     "prepublish": "rm -rf dist/ && npm run build",
     "prepublishOnly": "npm run test"
