@@ -4,38 +4,33 @@
 
 ## Examples
 
-> Link to an [example](https://viktorstrate.github.io/react-mathquill/)
+- [Build of examples](https://viktorstrate.github.io/react-mathquill/) located at `src/examples/`
+- Play with the examples below at this [Code Sandbox](https://codesandbox.io/s/sweet-liskov-8mlzu)
 
 ### Editable Math Field
 
 ```javascript
-import React from 'react'
+import React, { useState } from 'react'
 import { addStyles, EditableMathField } from 'react-mathquill'
 
 // inserts the required css to the <head> block.
 // you can skip this, if you want to do that by yourself.
 addStyles()
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props)
+const EditableMathExample = () => {
+  const [latex, setLatex] = useState('\\frac{1}{\\sqrt{2}}\\cdot 2')
 
-    this.state = {
-      latex: '\\frac{1}{\\sqrt{2}}\\cdot 2',
-    }
-  }
-
-  render() {
-    return (
+  return (
+    <div>
       <EditableMathField
-        latex={this.state.latex} // latex value for the input field
+        latex={latex}
         onChange={(mathField) => {
-          // called everytime the input changes
-          this.setState({ latex: mathField.latex() })
+          setLatex(mathField.latex())
         }}
       />
-    )
-  }
+      <p>{latex}</p>
+    </div>
+  )
 }
 ```
 
@@ -49,19 +44,9 @@ import { addStyles, StaticMathField } from 'react-mathquill'
 // you can skip this, if you want to do that by yourself.
 addStyles()
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      latex: '\\frac{1}{\\sqrt{2}}\\cdot 2',
-    }
-  }
-
-  render() {
-    return <StaticMathField>{this.state.latex}</StaticMathField>
-  }
-}
+const StaticMathExample = () => (
+  <StaticMathField>{'\\frac{1}{\\sqrt{2}}\\cdot 2'}</StaticMathField>
+)
 ```
 
 # Documentation
@@ -84,7 +69,7 @@ This function is not necessary, provided you include the styles in another way. 
 - onChange([mathField](http://docs.mathquill.com/en/latest/Api_Methods/#mqmathfieldhtml_element-config)) - _A function that is called on change events._
 - mathquillDidMount([mathField](http://docs.mathquill.com/en/latest/Api_Methods/#mqmathfieldhtml_element-config)) - _A function that is called when the Mathquill element is initalized._
 
-Other props will be passed to the wrapping element, this can be useful for custom _classNames_ or _styles_
+Other props will be passed to the wrapping span element, this can be useful for custom _classNames_ or _styles_
 
 ## StaticMathField (React Element)
 
@@ -94,4 +79,4 @@ Other props will be passed to the wrapping element, this can be useful for custo
 
 - children: String - _A string of latex to render statically on the page_
 
-Other props will be passed to the wrapping element, this can be useful for custom _classNames_ or _styles_
+Other props will be passed to the wrapping span element, this can be useful for custom _classNames_ or _styles_
