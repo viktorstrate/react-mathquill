@@ -29,14 +29,14 @@ class EditableMathExample extends React.Component {
         <EditableMathField
           className="mathquill-example-field"
           latex={this.state.latex}
-          onChange={mathField => {
+          onChange={(mathField) => {
             const latex = mathField.latex()
             const text = mathField.text()
             console.log('latex changed:', latex)
             console.log('text changed:', text)
             this.setState({ latex, text })
           }}
-          mathquillDidMount={el => {
+          mathquillDidMount={(el) => {
             this.mathQuillEl = el
           }}
         />

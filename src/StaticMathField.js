@@ -1,40 +1,23 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
-import { MathQuill } from './mathquill-loader'
+import MathQuill from './mathquill-loader'
 
-class StaticMathField extends React.Component {
-  constructor(props) {
-    super(props)
+const StaticMathField = ({ mathquillDidMount, children, ...otherProps }) => {
+  const wrapperElement = useRef(null)
+  const mathField = useRef(null)
 
-    this.element = null
-    this.mathField = null
+  useEffect(() => {
+    if (!wrapperElement) return
 
-    this.updateMathquill.bind(this)
-  }
+    mathField.current = MathQuill.StaticMath(wrapperElement.current)
+    if (mathquillDidMount) mathquillDidMount(mathField.current)
+  }, [wrapperElement])
 
-  updateMathquill() {
-    this.mathField = MathQuill.StaticMath(this.element)
-
-    if (this.props.mathquillDidMount) {
-      this.props.mathquillDidMount(this.mathField)
-    }
-  }
-
-  render() {
-    const { mathquillDidMount, children, ...otherProps } = this.props
-
-    return (
-      <span
-        {...otherProps}
-        ref={x => {
-          this.element = x
-          this.updateMathquill()
-        }}
-      >
-        {children}
-      </span>
-    )
-  }
+  return (
+    <span {...otherProps} ref={wrapperElement}>
+      {children}
+    </span>
+  )
 }
 
 StaticMathField.propTypes = {

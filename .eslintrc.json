@@ -2,9 +2,9 @@
   "env": {
     "browser": true,
     "es6": true,
-    "commonjs": true,
+    "commonjs": true
   },
-  "extends": "eslint:recommended",
+  "extends": "plugin:react/recommended",
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly",
@@ -19,6 +19,6 @@
   },
   "plugins": ["react"],
   "rules": {
-    "no-unused-vars": "off"
+    "no-unused-vars": "warn"
   }
 }
