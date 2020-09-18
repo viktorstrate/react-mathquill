@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // import the library
 import { EditableMathField } from '../../dist/react-mathquill'
@@ -6,53 +6,43 @@ import { EditableMathField } from '../../dist/react-mathquill'
 const initialLatex =
   '\\cos\\left(A\\right)=\\frac{b^2+c^2-a^2}{2\\cdot b\\cdot c}'
 
-class EditableMathExample extends React.Component {
-  constructor(props) {
-    super(props)
+const EditableMathExample = () => {
+  const [latex, setLatex] = useState(initialLatex)
+  const [text, setText] = useState('')
 
-    this.state = {
-      latex: initialLatex,
-      text: '',
-    }
+  return (
+    <div>
+      <h2>Editable Math Field</h2>
+      <EditableMathField
+        className="mathquill-example-field"
+        latex={latex}
+        onChange={(mathField) => {
+          setLatex(mathField.latex())
+          setText(mathField.text())
 
-    this.mathQuillEl = null
-
-    this.resetField = () => {
-      this.mathQuillEl.latex(initialLatex)
-    }
-  }
-
-  render() {
-    return (
-      <div>
-        Math field:{' '}
-        <EditableMathField
-          className="mathquill-example-field"
-          latex={this.state.latex}
-          onChange={(mathField) => {
-            const latex = mathField.latex()
-            const text = mathField.text()
-            console.log('latex changed:', latex)
-            console.log('text changed:', text)
-            this.setState({ latex, text })
-          }}
-          mathquillDidMount={(el) => {
-            this.mathQuillEl = el
-            this.setState({ text: this.mathQuillEl.text() })
-          }}
-        />
-        <div className="result-container">
-          <span>Raw latex:</span>
-          <span className="result-latex">{this.state.latex}</span>
-        </div>
-        <div className="result-container">
-          <span>Raw text:</span>
-          <span className="result-latex">{this.state.text}</span>
-        </div>
-        <button onClick={this.resetField}>Reset field</button>
+          console.log('Editable mathfield changed:', mathField.latex())
+        }}
+        mathquillDidMount={(mathField) => {
+          setText(mathField.text())
+        }}
+      />
+      <div className="result-container">
+        <span>Raw latex:</span>
+        <span className="result-latex">{latex}</span>
       </div>
-    )
-  }
+      <div className="result-container">
+        <span>Raw text:</span>
+        <span className="result-latex">{text}</span>
+      </div>
+      <button
+        onClick={() => {
+          setLatex(initialLatex)
+        }}
+      >
+        Reset field
+      </button>
+    </div>
+  )
 }
 
 export default EditableMathExample

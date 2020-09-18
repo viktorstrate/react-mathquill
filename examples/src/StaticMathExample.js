@@ -1,39 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // import the library
 import { StaticMathField } from '../../dist/react-mathquill'
 
 const firstLatex = 'e=mc^2'
-
 const secondLatex = '\\frac {\\sqrt{2}} {2\\cdot 2}'
 
-class StaticMathExample extends React.Component {
-  constructor(props) {
-    super(props)
+const StaticMathExample = () => {
+  const [latex, setLatex] = useState(firstLatex)
 
-    this.state = {
-      latex: firstLatex,
-    }
-
-    this.mathQuillEl = null
-
-    this.onChange = () => {
-      this.setState({
-        latex: this.state.latex == firstLatex ? secondLatex : firstLatex,
-      })
-    }
+  const onChange = () => {
+    setLatex(latex == firstLatex ? secondLatex : firstLatex)
   }
 
-  render() {
-    return (
-      <div>
-        <h1>Static Math Example</h1>
-        <StaticMathField>{this.state.latex}</StaticMathField>
-        <br />
-        <button onClick={this.onChange}>Change</button>
-      </div>
-    )
-  }
+  return (
+    <div>
+      <h2>Static Math Field</h2>
+      <StaticMathField>{latex}</StaticMathField>
+      <br />
+      <button onClick={onChange}>Change</button>
+    </div>
+  )
 }
 
 export default StaticMathExample
