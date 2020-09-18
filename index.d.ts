@@ -3,13 +3,15 @@ declare module 'react-mathquill' {
 
   export function addStyles(): void
 
-  export interface StaticMathFieldProps {
+  export interface StaticMathFieldProps
+    extends React.HTMLAttributes<HTMLDivElement> {
     children?: string
     mathquillDidMount?: (mathField: MathField) => void
     className?: string
   }
 
-  export interface EditableMathFieldProps {
+  export interface EditableMathFieldProps
+    extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
     onChange?: (mathField: MathField) => void
     latex?: string
     config?: MathFieldConfig
