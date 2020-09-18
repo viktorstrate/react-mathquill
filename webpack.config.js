@@ -57,7 +57,7 @@ module.exports = {
                 moduleName: 'jquery',
                 name: '__webpack_jquery',
               },
-              additionalCode: 'window.jQuery=__webpack_jquery;'
+              additionalCode: 'window.jQuery=__webpack_jquery;',
             },
           },
           {
@@ -66,11 +66,11 @@ module.exports = {
               type: 'commonjs',
               exports: {
                 syntax: 'single',
-                name: 'window.MathQuill'
-              }
-            }
-          }
-        ]
+                name: 'window.MathQuill',
+              },
+            },
+          },
+        ],
       },
     ],
   },

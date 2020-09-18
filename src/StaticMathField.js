@@ -11,7 +11,7 @@ const StaticMathField = ({ mathquillDidMount, children, ...otherProps }) => {
 
     mathField.current = MathQuill.StaticMath(wrapperElement.current)
     if (mathquillDidMount) mathquillDidMount(mathField.current)
-  }, [wrapperElement])
+  }, [wrapperElement, children])
 
   return (
     <span {...otherProps} ref={wrapperElement}>
