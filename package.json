@@ -20,7 +20,7 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "react": "^16.13.1"
+    "react": "^17.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
