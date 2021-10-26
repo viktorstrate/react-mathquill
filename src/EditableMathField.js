@@ -12,7 +12,13 @@ const EditableMathField = ({
   // MathQuill fire 2 edit events on startup.
   const ignoreEditEvents = useRef(2)
   const mathField = useRef(null)
-  const wrapperElement = useRef(null)
+  const wrapperElement = useRef(null);
+
+  // This is required to prevent state closure over the onChange function
+  const onChangeRef = useRef(onChange);
+  useEffect(() => {
+    onChangeRef.current = onChange;
+  }, [onChange])
 
   // Setup MathQuill on the wrapperElement
   useEffect(() => {
@@ -37,7 +43,7 @@ const EditableMathField = ({
       if (ignoreEditEvents.current > 0) {
         ignoreEditEvents.current -= 1
       } else {
-        if (onChange) onChange(mathField)
+        if (onChangeRef.current) onChangeRef.current(mathField)
       }
     }
 

@@ -1,8 +1,15 @@
-module.exports = {
+const path = require('path')
+
+module.exports = (env, args) => ({
   output: {
     library: 'MathquillComponent',
     libraryTarget: 'umd',
     umdNamedDefine: true,
+    filename:
+      args.mode == 'production'
+        ? 'react-mathquill.min.js'
+        : 'react-mathquill.js',
+    path: path.resolve(__dirname, 'dist/'),
   },
   target: 'node',
   externals: {
@@ -74,4 +81,4 @@ module.exports = {
       },
     ],
   },
-}
+})

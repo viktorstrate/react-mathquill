@@ -17,15 +17,9 @@ declare module 'react-mathquill' {
     mathquillDidMount?: (mathField: MathField) => void
   }
 
-  export class EditableMathField extends React.Component<
-    EditableMathFieldProps
-  > {
-    constructor(props: EditableMathFieldProps)
-  }
+  export const EditableMathField: React.FunctionComponent<EditableMathFieldProps>
 
-  export class StaticMathField extends React.Component<StaticMathFieldProps> {
-    constructor(props: StaticMathFieldProps)
-  }
+  export const StaticMathField: React.FunctionComponent<StaticMathFieldProps>
 
   export interface MathFieldConfig {
     spaceBehavesLikeTab?: boolean
