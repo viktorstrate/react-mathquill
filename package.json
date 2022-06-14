@@ -1,11 +1,11 @@
 {
-  "name": "@nww/react-mathquill",
+  "name": "@numberworks/react-mathquill",
   "version": "1.0.3",
   "description": "React component wrapper for Mathquill",
   "main": "index.js",
   "typings": "index.d.ts",
   "repository": "git@github.com:mrwwalmsley/react-mathquill.git",
-  "author": "Mike Walmsley <mrwwalmsley@gmail.com>",
+  "author": "Mike Walmsley <mike@numberworks.com>",
   "license": "MIT",
   "private": false,
   "scripts": {
