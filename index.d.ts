@@ -1,4 +1,4 @@
-declare module 'react-mathquill' {
+declare module '@numberworks/react-mathquill' {
   import * as React from 'react'
 
   export function addStyles(): void
