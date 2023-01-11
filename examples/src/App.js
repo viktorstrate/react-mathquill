@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
 
 // import the styles
 import { addStyles as addMathquillStyles } from '../../dist/react-mathquill'
@@ -16,4 +16,4 @@ const App = () => (
   </div>
 )
 
-ReactDOM.render(<App />, document.getElementById('app'))
+createRoot(document.getElementById('app')).render(<App />)
